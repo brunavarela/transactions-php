@@ -27,4 +27,18 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Throwable $error) {
+        // É um erro do tipo AppError? Então eu que originei (regra de negocio)
+
+        if($error instanceof AppError) {
+            return response()->json([
+                'errors' => $error->getMessage()
+            ], $error->getCode());
+        }
+
+        return response()->json([
+            'message'=> 'Ocorreu um erro interno no servidor'
+        ], 500);
+    }
 }
