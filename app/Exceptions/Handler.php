@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -29,8 +30,14 @@ class Handler extends ExceptionHandler
     }
 
     public function render($request, Throwable $error) {
-        // É um erro do tipo AppError? Então eu que originei (regra de negocio)
 
+        if($error instanceof ValidationException) {
+            return response()->json([
+                'errors' => $error->validator->errors()
+            ], 422);
+        }
+
+        // É um erro do tipo AppError? Então eu que originei (regra de negocio)
         if($error instanceof AppError) {
             return response()->json([
                 'errors' => $error->getMessage()
