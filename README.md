@@ -26,3 +26,7 @@ PARA RODAR O SISTEMA/docker aberto: project-php-laravel
 Acessar container para executar migration
 
 docker exec -it project-php-laravel-laravel.test-1 /bin/sh
+
+PARA REINICIAR A PORTA
+sudo lsof -i :80
+sudo kill PID
