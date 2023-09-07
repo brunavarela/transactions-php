@@ -1,59 +1,62 @@
-PHP 
+# Projeto Transactions PHP/Laravel
 
-sudo apt install php8.1-xml
+## Descrição do Projeto
 
-Criar migration
+O projeto Transactions é uma aplicação desenvolvida em PHP/Laravel que permite a criação de contas de usuário, login e a realização de transações financeiras entre usuários, exibindo o saldo atual. O objetivo principal deste projeto é fornecer uma oportunidade de prática no desenvolvimento com PHP e Laravel.
 
-php artisan make:migration create_flights_table
+## Pré-requisitos
 
-Regras de negócio ao criar usuário
+Para executar o sistema, você precisará ter as seguintes ferramentas e versões instaladas em seu ambiente de desenvolvimento:
 
-Verificação a nível de controller
-[X] Nome foi enviado
-[X] Email foi enviado
-[X] Email válido
-[X] Cpf foi enviado
-[X] Senha foi enviado
-[X] Senha minimo 7 caracteres
+- Node.js 18.17.0
+- PHP 8.1
 
-Verificação a nível de serviço
-[X] Verificar se o email existe
-[X] Verificar se o cpf existe
+## Configuração do Ambiente
 
-Transaction
-[X] Payer existe
-[X] Payee existe
-[X] Usuario não pode ser vendedor
-[X] Balance precisa ser maior ou igual ao valor da transação
-[X] Subtrair o valor do payer
-[X] Somar o valor no payee
-[X] Salvar a transação
+Certifique-se de que o Docker esteja instalado e em execução em seu sistema. Para rodar o sistema, siga os passos abaixo:
 
-PARA RODAR O SISTEMA/docker aberto: project-php-laravel
-./vendor/bin/sail up
+1. Abra um terminal na raiz do projeto.
 
-Acessar container para executar migration
+2. Execute o seguinte comando para iniciar o Docker e preparar o ambiente:
 
-docker exec -it project-php-laravel-laravel.test-1 /bin/sh
+   ```bash
+   ./vendor/bin/sail up
+3. Para acessar o contêiner do Laravel, use o seguinte comando:
 
-PARA REINICIAR A PORTA
-sudo lsof -i :80
-sudo kill PID
+   ```bash
+   docker exec -it project-php-laravel-laravel.test-1 /bin/sh
+   
+## Uso
+O projeto Transactions oferece as seguintes funcionalidades:
 
-Resumo (criando tabela e model):
+- Criação de contas de usuário.
+- Login de usuários.
+- Realização de transações financeiras entre usuários.
+- Exibição do saldo atual das contas.
 
-1 - cria a tabela com migration : php artisan make:migration create_transactions_table;
-2 - roda o docker no terminal : docker exec -it project-php-laravel-laravel.test-1 /bin/sh;
-3 - inicia a(s) migration : # php artisan migrate;
-4 - cria a model : php artisan make:model Transaction;
+## Estrutura do Projeto
+O projeto está organizado com as seguintes estruturas principais:
 
-Resumo (codando):
+- app: Contém os arquivos principais da aplicação Laravel.
+- controllers: Contém os controladores da aplicação.
+- service: Contém serviços auxiliares.
+- request: Contém classes de requisição para validação.
+- route: Define as rotas da aplicação.
+- model: Contém os modelos de dados.
+  
+## Contribuição
 
-1 - migrations : coloca(cria) as informações da tabela na migration;
-2 - model : colocar o uuid, colocar a tabela a qual ela faz referencia 'transactions' e quais são os campos;
-3 - service : botar algum retorno (return 2) pra testar a rota após o passo 5;
-4 - controller : criar controller;
-5 - route : criar a rota e passar a controller, testar a rota;
-6 - request : criar request e depois fazer o teste novamente;
-7 - service : voltar a service e colocar os casos de uso;
-8 - service : retornar a model;
+Este projeto está aberto para contribuições. Se desejar contribuir, siga estas etapas:
+
+- Faça um fork do repositório.
+- Crie uma branch para sua contribuição (git checkout -b feature/sua-contribuicao).
+- Faça as alterações necessárias e commit.
+- Envie um pull request com uma descrição detalhada das alterações.
+
+## Contato
+Para entrar em contato com os desenvolvedores ou relatar problemas, entre em contato com:
+
+- [Bruna Varela](brunavarela1@hotmail.com)
+
+## Créditos
+Este projeto foi desenvolvido como parte do programa de treinamento da Kenzie Academy Brasil, sob a orientação do professor Gabriel Tsunode.
