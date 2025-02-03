@@ -8,7 +8,6 @@ O projeto Transactions é uma aplicação desenvolvida em PHP/Laravel que permit
 
 Para executar o sistema, você precisará ter as seguintes ferramentas e versões instaladas em seu ambiente de desenvolvimento:
 
-- Node.js 18.17.0
 - PHP 8.1
 
 ## Configuração do Ambiente
